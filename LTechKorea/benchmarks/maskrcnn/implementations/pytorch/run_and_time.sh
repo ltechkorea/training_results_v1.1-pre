@@ -32,6 +32,7 @@ echo "running benchmark"
 
 DATASET_DIR='/data'
 ln -sTf "${DATASET_DIR}/coco2017" /coco
+#ln -sTf "${DATASET_DIR}/coco2017/pkl_coco" /pkl_coco
 echo `ls /data`
 echo `ls /pkl_coco`
 
@@ -75,6 +76,9 @@ then
     LOGGER=""
   fi
 fi
+
+#  --config-file 'configs/e2e_mask_rcnn_R_50_FPN_1x.yaml' \
+#  --config-file './configs/tutorial_8gpu_e2e_faster_rcnn_R-50-FPN.yaml' \
 
 ${LOGGER:-} "${CMD[@]}" tools/train_mlperf.py \
   ${EXTRA_PARAMS} \
