@@ -87,8 +87,10 @@ RUN rm /usr/lib/x86_64-linux-gnu/libibverbs.so
 ENV PATH=/usr/local/hugectr/bin:$PATH
 ENV NCCL_COLLNET_ENABLE=0
 
+#RUN git clone https://github.com/facebookresearch/dlrm.git dlrm_dir
+
 WORKDIR /workspace/dlrm
 
-RUN pip3 install --upgrade --no-cache-dir https://github.com/mlcommons/logging/archive/1.0.0-rc2.zip
+RUN pip3 install --upgrade --no-cache-dir https://github.com/mlcommons/logging/archive/1.0.0.zip
 
 COPY . .

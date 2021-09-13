@@ -36,8 +36,8 @@ set -euxo pipefail
 readonly _config_file="./config_${DGXSYSTEM}.sh"
 readonly _logfile_base="${LOGDIR}/${DATESTAMP}"
 readonly _cont_name=dlrm_hugectr
-_cont_mounts=("--volume=${DATADIR}:/raid/datasets/criteo/mlperf/40m.limit_preshuffled/" "--volume=${LOGDIR}:${LOGDIR}")
-
+#_cont_mounts=("--volume=${DATADIR}:/raid/datasets/criteo/mlperf/40m.limit_preshuffled/" "--volume=${LOGDIR}:${LOGDIR}")
+_cont_mounts=("--volume=${DATADIR}:/opt/data/Dataset/training/dlrm/" "--volume=${LOGDIR}:${LOGDIR}")
 # Setup directories
 mkdir -p "${LOGDIR}"
 
@@ -56,8 +56,8 @@ cleanup_docker
 trap 'set -eux; cleanup_docker' EXIT
 
 # Setup container
-nvidia-docker run --rm --init --detach \
-    --net=host --uts=host --ipc=host --security-opt=seccomp=unconfined \
+docker run --rm --init --detach \
+    --gpus=all --net=host --uts=host --ipc=host --security-opt=seccomp=unconfined \
     --name="${_cont_name}" "${_cont_mounts[@]}" \
     "${CONT}" sleep infinity
 #make sure container has time to finish initialization
