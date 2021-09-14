@@ -30,8 +30,9 @@ RUN apt-get update \
 WORKDIR /workspace/object_detection
 
 COPY requirements.txt .
-RUN pip install --no-cache-dir https://github.com/mlperf/logging/archive/5bc16bf.zip \
- && pip install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir \
+  https://github.com/mlcommons/logging/archive/refs/tags/1.0.0.zip \
+  && pip3 install --no-cache-dir -r requirements.txt
 
 # Copy detectron code and build
 COPY . .
