@@ -2,11 +2,11 @@
 
 #docker run --rm -it -v /data:/data --gpus=all --name jay-ml ltech/mlperf-tf2
 
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda/lib64:/usr/local/cyda/compat:/usr/lib/cuda/nvvm
-export XLA_FLAGS="--xla_gpu_cuda_data_dir=/usr/lib/cuda"
+#export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda/lib64:/usr/local/cyda/compat:/usr/lib/cuda/nvvm
+#export XLA_FLAGS="--xla_gpu_cuda_data_dir=/usr/lib/cuda"
 
-DATA_DIR="/data/mlperf-datasets/imn/tf_records"
-MODEL_OUT_DIR="/data/training-ltech/image_classification/tensorflow2/log"
+DATA_DIR="/data/tf_records"
+MODEL_OUT_DIR="./log"
 TRAIN_EPOCH=41	#	41
 WARMUP_EPOCH=5	#	5
 
