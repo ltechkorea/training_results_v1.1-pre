@@ -27,7 +27,7 @@ RUN apt-get update \
 
 WORKDIR /workspace/bert
 COPY requirements.txt .
-RUN pip install --no-cache-dir --upgrade https://github.com/mlperf/logging/archive/5bc16bf.zip \
+RUN pip install --no-cache-dir --upgrade https://github.com/mlcommons/logging/archive/1.0.0.zip \
  && pip install --no-cache-dir -r requirements.txt
 
 # Preprocessing

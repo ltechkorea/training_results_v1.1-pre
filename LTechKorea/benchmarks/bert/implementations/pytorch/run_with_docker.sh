@@ -141,9 +141,9 @@ if [[ $USE_DDP != 1 || $GRADIENT_STEPS != 1 ]]; then
 fi
 
 # Setup container
-nvidia-docker run --rm --init --detach \
+  docker run --rm --init --detach \
     --net=host --uts=host --ipc=host --security-opt=seccomp=unconfined \
-    --ulimit=stack=67108864 --ulimit=memlock=-1 \
+    --ulimit=stack=67108864 --ulimit=memlock=-1 --gpus=all \
     --name="${_cont_name}" "${_cont_mounts[@]}" \
     "${CONT}" sleep infinity
 #make sure container has time to finish initialization
