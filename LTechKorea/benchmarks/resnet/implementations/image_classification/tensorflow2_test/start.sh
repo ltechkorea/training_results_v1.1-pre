@@ -5,14 +5,14 @@
 #export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda/lib64:/usr/local/cyda/compat:/usr/lib/cuda/nvvm
 #export XLA_FLAGS="--xla_gpu_cuda_data_dir=/usr/lib/cuda"
 
-DATA_DIR="/data/tf_records"
+DATA_DIR="/data/tf_records/"
 MODEL_OUT_DIR="./log"
 TRAIN_EPOCH=41	#	41
 WARMUP_EPOCH=5	#	5
 
-python ./resnet_ctl_imagenet_main.py \
+python3 ./resnet_ctl_imagenet_main.py \
 --base_learning_rate=8.5 \
---batch_size=1024 \
+--batch_size=256 \
 --clean \
 --data_dir=${DATA_DIR} \
 --datasets_num_private_threads=32 \

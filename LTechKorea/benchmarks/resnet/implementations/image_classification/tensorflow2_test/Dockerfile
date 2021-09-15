@@ -33,8 +33,8 @@ RUN apt-get update && apt-get install -y \
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1 && \
     update-alternatives --install /usr/bin/python python /usr/bin/python3.8 2
 
-RUN pip install --upgrade numpy scipy sklearn tf-nightly-gpu
-#RUN pip install --upgrade numpy scipy sklearn tensorflow-gpu==2.2.0
+#RUN pip install --upgrade numpy scipy sklearn tf-nightly-gpu
+RUN pip install --upgrade numpy==1.19.2 scipy grpcio~=1.32.0 six~=1.15.0 sklearn tensorflow-gpu==2.4.0
 
 RUN apt-get update && apt-get install -y \
 	    nvidia-cuda-toolkit \
