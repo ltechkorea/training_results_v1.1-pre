@@ -12,5 +12,8 @@ RUN pip install -r requirements.txt
 RUN pip install torch==1.3.1
 RUN pip install tensorboard
 
+RUN git clone https://github.com/mlperf/logging.git mlperf-logging 
+RUN pip install -e mlperf-logging
+
 WORKDIR /code
 ADD . .
